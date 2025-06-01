@@ -9,7 +9,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Music Search with Kafka</name>
+    <name>Music Search</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -23,38 +23,31 @@
     </properties>
 
     <dependencies>
-
-        <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Spring Kafka -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
 
-        <!-- Elasticsearch Java Client (совместимый с Spring Boot 3.1.0) -->
         <dependency>
             <groupId>co.elastic.clients</groupId>
             <artifactId>elasticsearch-java</artifactId>
             <version>8.7.0</version>
         </dependency>
 
-        <!-- JSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
 
-        <!-- Логгирование -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>

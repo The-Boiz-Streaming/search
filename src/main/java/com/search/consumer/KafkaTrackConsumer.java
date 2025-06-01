@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.util.UUID; // ✅ Добавлен импорт
-
 @Component
 public class KafkaTrackConsumer {
 
@@ -25,11 +22,10 @@ public class KafkaTrackConsumer {
     public void consume(String message) {
         try {
             Track track = objectMapper.readValue(message, Track.class);
-            String documentId = track.getTrack() != null ? track.getTrack() : UUID.randomUUID().toString();
+            String documentId = track.getTrack_id();
             esClient.indexDocument("tracks", documentId, track);
-            System.out.println("Indexed track: " + track.getTrack());
         } catch (Exception e) {
-            System.err.println("Error indexing message: " + message);
+            System.err.println("Ошибка при индексации: " + message);
             e.printStackTrace();
         }
     }
